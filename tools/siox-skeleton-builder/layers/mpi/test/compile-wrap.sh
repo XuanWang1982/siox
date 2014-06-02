@@ -16,7 +16,7 @@ sioxmpicc write_gpfs_file.c -c
 
 echo 'Appending the output of the wrapper to compile the program'
 sleep 2
-sioxmpicc write_gpfs_file.o mpi-wrapper.o -o write_gpfs_file_wrapper -Wl
+sioxmpicc write_gpfs_file.o mpi-wrapper.o -o write_gpfs_file_wrapper
 
 echo 'Running wrapped code'
 sioxmpirun -np 1 write_gpfs_file_wripper

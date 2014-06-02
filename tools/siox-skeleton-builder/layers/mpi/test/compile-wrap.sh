@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/bin/sh
 
 OUTPUT_FILE=mpi-wrapper.c
 

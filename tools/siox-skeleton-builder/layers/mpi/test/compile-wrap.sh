@@ -22,6 +22,6 @@ sleep 1
 sioxmpicc write_gpfs_file.o mpi-wrapper.o -g -o write_gpfs_file_wrapper $WRAP_MPI_FUNCTIONS
 
 echo 'Running wrapped code'
-valgrind --leak-check=full --show-reachable=yes sioxmpirun -np 1 write_gpfs_file_wrapper
+sioxmpirun -np 1 write_gpfs_file_wrapper
 
 #mpicc ${OUTPUT_FILE%%.c}.o -o libsiox-mpi-wrapper.so -shared -ldl `pkg-config --libs glib-2.0`

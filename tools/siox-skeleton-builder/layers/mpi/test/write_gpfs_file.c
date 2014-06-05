@@ -10,7 +10,7 @@
 void main(int argc, char *argv[]) {
 	// various variables
 	int my_rank, my_size, i, count;
-	int number_of_blocks = 496; // 1 block = 4 MB
+	int number_of_blocks = 40; // 1 block = 4 MB
 	int master_rank = FALSE;
 	char file_name[30];
 	int filename_length, number_of_integers, number_of_bytes;

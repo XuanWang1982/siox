@@ -15,7 +15,7 @@ python ../../../siox-skeleton-builder.py -s wrap -t ../../../template.py -o $OUT
 echo 'Compiling' $OUTPUT_FILE
 sleep 1
 sioxmpicc $OUTPUT_FILE -g -c -fPIC -std=c99 -I ../../../low-level-C-interface `pkg-config --cflags glib-2.0`
-sioxmpicc write_gpfs_file.c -c
+sioxmpicc write_gpfs_file.c -g -c
 
 echo 'Appending the output of the wrapper to compile the program'
 sleep 1

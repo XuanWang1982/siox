@@ -67,6 +67,7 @@ namespace knowledge {
 			OntologyValue optimalParameterFor( OntologyAttributeID aid, const Activity * activityToStart ) const throw( NotFoundError ) override {
 				///@todo Check for registered plug-in?
 				auto res = expert.find( aid );
+				printf("=============Test for optimalParameterFor \n");
 
 				if( res != expert.end() ) {
 					return res->second->optimalParameterFor( aid, activityToStart );

@@ -982,6 +982,7 @@ static siox_attribute * convertOntologyAttributeToPtr(const OntologyAttribute & 
 	int siox_suggest_optimal_value_for( siox_component * component, siox_attribute * attribute, siox_activity * activity, void * out_value ){
 		FUNCTION_BEGIN
 
+		printf("=============Test for siox_suggest_optimal_value_for \n");
 		if ( process_data.optimizer == nullptr ){
 			return false;
 		}

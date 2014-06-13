@@ -986,6 +986,7 @@ static siox_attribute * convertOntologyAttributeToPtr(const OntologyAttribute & 
 		char test[60] = "=============Test for siox_suggest_optimal_value_for \n";
 		out_value = test;
 		if ( process_data.optimizer == nullptr ){
+			printf("process_data.optimizer == nullptr\n");
 			return false;
 		}
 
@@ -993,8 +994,10 @@ static siox_attribute * convertOntologyAttributeToPtr(const OntologyAttribute & 
 
 		try{
 			OntologyValue val(process_data.optimizer->optimalParameterFor(oa.aID, activity->activity));
+			printf("OntologyValue val()\n");
 			return convert_attribute_back(oa, val, out_value);
 		}catch ( NotFoundError & e ){
+			printf("NotFoundError\n");
 			return false;
 		}		
 	}

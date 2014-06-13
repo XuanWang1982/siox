@@ -70,8 +70,10 @@ namespace knowledge {
 				printf("=============Test for optimalParameterFor \n");
 
 				if( res != expert.end() ) {
+					printf("optimalParameterFor res != expert.end() \n");
 					return res->second->optimalParameterFor( aid, activityToStart );
 				} else {
+					printf("optimalParameterFor NotFoundError \n");
 					throw NotFoundError( "Illegal attribute!" );
 				}
 			}

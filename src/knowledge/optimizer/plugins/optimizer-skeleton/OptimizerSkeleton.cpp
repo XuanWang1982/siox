@@ -12,17 +12,28 @@ using namespace monitoring;
 using namespace core;
 using namespace knowledge;
 
+enum OptimizerTokenType {
+	OPEN = 0,
+	READ,
+	WRITE,
+	CLOSE,
+	HINT,
+	UNKNOWN,
+	TOKEN_TYPE_COUNT
+};
+ADD_ENUM_OPERATORS(OptimizerTokenType)
+
 // Create an implementation of the options.
 CREATE_SERIALIZEABLE_CLS( OptimizerPluginOptions )
 
 // It is important that the first parent class is of type OptimizerPlugin
 class OptimizerPluginSkeleton: public OptimizerPlugin {
 	private:
-		/*  SystemInformationGlobalIDManager * sys;
+		  SystemInformationGlobalIDManager * sys;
 		    OntologyAttribute * filesize;
-		*/
+
 	public:
-		/*  void Notify(Activity * activity)
+		  void Notify(Activity * activity)
 		    {
 		        if(filesize == nullptr) // initial state
 		            return;
@@ -54,7 +65,7 @@ class OptimizerPluginSkeleton: public OptimizerPlugin {
 
 		        multiplexer.registerListener(this);
 		    }
-		*/
+
 
 		virtual OntologyValue optimalParameter( const OntologyAttribute & attribute ) {
 			return OntologyValue( 42 );

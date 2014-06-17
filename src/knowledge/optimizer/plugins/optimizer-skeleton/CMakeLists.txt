@@ -14,7 +14,7 @@ target_link_libraries(
 	siox-knowledge-optimizer-optimizer-skeleton
 )
 
-siox_run_serializer(OptimizerSkeleton.cpp)
+siox_run_serializer(OptimizerSkeleton.hpp OptimizerSkeleton.cpp)
 
 # add_subdirectory(test)
 

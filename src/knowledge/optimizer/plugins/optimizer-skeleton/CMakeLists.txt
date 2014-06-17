@@ -7,6 +7,7 @@ include_directories(
 
  add_library(
  	OptimizerSkeleton SHARED
+ 	OptimizerSkeleton.hpp
  	OptimizerSkeleton.cpp
  )
  

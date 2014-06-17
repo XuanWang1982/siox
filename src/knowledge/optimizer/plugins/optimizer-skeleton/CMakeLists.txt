@@ -6,7 +6,7 @@ include_directories(
 )
 
  add_library(
- 	OptimizerSkeleton SHARED
+ 	siox-knowledge-optimizer-optimizer-skeleton
  	OptimizerSkeleton.hpp
  	OptimizerSkeleton.cpp
  )

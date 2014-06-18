@@ -67,14 +67,14 @@ namespace knowledge {
 			OntologyValue optimalParameterFor( OntologyAttributeID aid, const Activity * activityToStart ) const throw( NotFoundError ) override {
 				///@todo Check for registered plug-in?
 				auto res = expert.find( aid );
-				printf("=============Test for optimalParameterFor \n");
-				printf("***optimalParameterFor*** The attribute ID is: %d\n", aid);
+				cout << "=============Test for optimalParameterFor" << endl;
+				cout << "***optimalParameterFor*** The attribute ID is: " << aid << endl;
 
 				if( res != expert.end() ) {
-					printf("optimalParameterFor res != expert.end() \n");
+					cout << "optimalParameterFor res != expert.end()" << endl;
 					return res->second->optimalParameterFor( aid, activityToStart );
 				} else {
-					printf("optimalParameterFor NotFoundError \n");
+					cout << "optimalParameterFor NotFoundError" << endl;
 					throw NotFoundError( "Illegal attribute!" );
 				}
 			}

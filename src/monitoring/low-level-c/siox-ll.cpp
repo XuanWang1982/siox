@@ -982,21 +982,21 @@ static siox_attribute * convertOntologyAttributeToPtr(const OntologyAttribute & 
 	int siox_suggest_optimal_value_for( siox_component * component, siox_attribute * attribute, siox_activity * activity, void * out_value ){
 		FUNCTION_BEGIN
 
-		printf("printf=============Test for siox_suggest_optimal_value_for \n");
+		cout << "printf=============Test for siox_suggest_optimal_value_for" << endl;
 		if ( process_data.optimizer == nullptr ){
-			printf("siox_suggest_optimal_value_for process_data.optimizer == nullptr\n");
+			cout << "siox_suggest_optimal_value_for process_data.optimizer == nullptr" << endl;
 			return false;
 		}
 
 		OntologyAttribute oa = convertPtrToOntologyAttribute(attribute);
-		printf("***siox_suggest_optimal_value_for*** The attribute ID is: %d\n", oa.aID);
+		cout << "***siox_suggest_optimal_value_for*** The attribute ID is:" << oa.aID << endl;
 
 		try{
 			OntologyValue val(process_data.optimizer->optimalParameterFor(oa.aID, activity->activity));
-			printf("siox_suggest_optimal_value_for OntologyValue val()\n");
+			cout << "siox_suggest_optimal_value_for OntologyValue val()" << endl;
 			return convert_attribute_back(oa, val, out_value);
 		}catch ( NotFoundError & e ){
-			printf("siox_suggest_optimal_value_for NotFoundError\n");
+			cout << "siox_suggest_optimal_value_for NotFoundError" << endl;
 			return false;
 		}		
 	}

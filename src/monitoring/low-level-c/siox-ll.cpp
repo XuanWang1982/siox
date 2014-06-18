@@ -983,8 +983,7 @@ static siox_attribute * convertOntologyAttributeToPtr(const OntologyAttribute & 
 		FUNCTION_BEGIN
 
 		printf("printf=============Test for siox_suggest_optimal_value_for \n");
-		char test[60] = "=============Test for siox_suggest_optimal_value_for \n";
-		out_value = test;
+		printf("***siox_suggest_optimal_value_for*** The attribute ID is: %d\n", oa.aID);
 		if ( process_data.optimizer == nullptr ){
 			printf("siox_suggest_optimal_value_for process_data.optimizer == nullptr\n");
 			return false;

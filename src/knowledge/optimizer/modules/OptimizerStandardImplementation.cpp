@@ -68,6 +68,7 @@ namespace knowledge {
 				///@todo Check for registered plug-in?
 				auto res = expert.find( aid );
 				printf("=============Test for optimalParameterFor \n");
+				printf("***optimalParameterFor*** The attribute ID is: %d\n", aid);
 
 				if( res != expert.end() ) {
 					printf("optimalParameterFor res != expert.end() \n");

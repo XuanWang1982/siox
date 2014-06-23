@@ -66,6 +66,14 @@ namespace knowledge {
 
 			OntologyValue optimalParameterFor( OntologyAttributeID aid, const Activity * activityToStart ) const throw( NotFoundError ) override {
 				///@todo Check for registered plug-in?
+				bool flag = false;
+				flag = isPluginRegistered(aid);
+				cout << "Is the optimizer plugin registered?" << boolalpha << flag << endl;
+
+				if(!flag){
+					cout << "TODO registerPlugin()" << endl;
+				}
+
 				auto res = expert.find( aid );
 				cout << "=============Test for optimalParameterFor" << endl;
 				cout << "***optimalParameterFor*** The attribute ID is: " << aid << endl;

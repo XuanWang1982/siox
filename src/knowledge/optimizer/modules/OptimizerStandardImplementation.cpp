@@ -68,21 +68,21 @@ namespace knowledge {
 				///@todo Check for registered plug-in?
 				bool flag = false;
 				flag = isPluginRegistered(aid);
-				cout << "Is the optimizer plugin registered?" << boolalpha << flag << endl;
+cout << "Is the optimizer plugin registered?" << boolalpha << flag << endl;
 
 				if(!flag){
 					cout << "TODO registerPlugin()" << endl;
 				}
 
 				auto res = expert.find( aid );
-				cout << "=============Test for optimalParameterFor" << endl;
-				cout << "***optimalParameterFor*** The attribute ID is: " << aid << endl;
+cout << "=============Test for optimalParameterFor" << endl;
+cout << "***optimalParameterFor*** The attribute ID is: " << aid << endl;
 
 				if( res != expert.end() ) {
-					cout << "optimalParameterFor res != expert.end()" << endl;
+cout << "optimalParameterFor res != expert.end()" << endl;
 					return res->second->optimalParameterFor( aid, activityToStart );
 				} else {
-					cout << "optimalParameterFor NotFoundError" << endl;
+cout << "optimalParameterFor NotFoundError" << endl;
 					throw NotFoundError( "Illegal attribute!" );
 				}
 			}

@@ -59,8 +59,6 @@ class FileConfigurationProvider : public ConfigurationProvider {
 
 		const string & getConfiguration( string & type, string & matchingRules ) throw( ConfigurationProviderError ) {
 			string what = type + ( matchingRules.length() > 0 ? " " + matchingRules : "" );
-cout << "****getConfiguration what is " << what << endl;
-cout << "****getConfiguration configurationSections[what] is " << configurationSections[what] << endl;
 			return configurationSections[what];
 		}
 

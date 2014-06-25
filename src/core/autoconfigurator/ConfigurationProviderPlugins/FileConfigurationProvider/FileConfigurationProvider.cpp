@@ -59,6 +59,7 @@ class FileConfigurationProvider : public ConfigurationProvider {
 
 		const string & getConfiguration( string & type, string & matchingRules ) throw( ConfigurationProviderError ) {
 			string what = type + ( matchingRules.length() > 0 ? " " + matchingRules : "" );
+cout << "****getConfiguration what is" << what << endl;
 			return configurationSections[what];
 		}
 
@@ -68,9 +69,12 @@ class FileConfigurationProvider : public ConfigurationProvider {
 
 		void parseData( string & configSection, string && data ) {
 			if( configSection.length() < 4 ) {
+cout << "****configSection.length() < 4" << endl;
 				return;
 			}
 			configSection = configSection.substr( 8 ); // strip: #CONFIG
+cout << "****parseData configSection is" << configSection << endl;
+cout << "****parseData data is" << data << endl;
 			configurationSections[configSection] = data;
 		}
 };

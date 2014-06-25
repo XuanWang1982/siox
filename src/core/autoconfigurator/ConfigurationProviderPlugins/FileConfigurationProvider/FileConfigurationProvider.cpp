@@ -59,7 +59,8 @@ class FileConfigurationProvider : public ConfigurationProvider {
 
 		const string & getConfiguration( string & type, string & matchingRules ) throw( ConfigurationProviderError ) {
 			string what = type + ( matchingRules.length() > 0 ? " " + matchingRules : "" );
-cout << "****getConfiguration what is" << what << endl;
+cout << "****getConfiguration what is " << what << endl;
+cout << "****getConfiguration configurationSections[what] is " << configurationSections[what] << endl;
 			return configurationSections[what];
 		}
 
@@ -69,12 +70,9 @@ cout << "****getConfiguration what is" << what << endl;
 
 		void parseData( string & configSection, string && data ) {
 			if( configSection.length() < 4 ) {
-cout << "****configSection.length() < 4" << endl;
 				return;
 			}
 			configSection = configSection.substr( 8 ); // strip: #CONFIG
-cout << "****parseData configSection is" << configSection << endl;
-cout << "****parseData data is" << data << endl;
 			configurationSections[configSection] = data;
 		}
 };

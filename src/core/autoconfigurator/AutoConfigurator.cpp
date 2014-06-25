@@ -51,6 +51,7 @@ namespace core {
 	vector<Component *> AutoConfigurator::LoadConfiguration( string type, string matchingRules ) throw( InvalidComponentException, InvalidConfiguration )
 	{
 		string config = configurationProvider->getConfiguration( type, matchingRules );
+cout << "****LoadConfiguration config is " << config << endl;
 		if( config.length() < 10 ) {
 			throw InvalidConfiguration( "Configuration is unavailable or too short", "" );
 		}

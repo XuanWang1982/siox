@@ -995,7 +995,7 @@ cout << "***siox_suggest_optimal_value_for*** The attribute ID is:" << oa.aID <<
 cout << "***siox_suggest_optimal_value_for*** OntologyValue val()" << endl;
 			return convert_attribute_back(oa, val, out_value);
 		}catch ( NotFoundError & e ){
-cout << "***siox_suggest_optimal_value_for*** NotFoundError " << e << endl;
+cout << "***siox_suggest_optimal_value_for*** NotFoundError " << NotFoundError << endl;
 			return false;
 		}		
 	}

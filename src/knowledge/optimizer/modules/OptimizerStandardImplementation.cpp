@@ -69,6 +69,7 @@ namespace knowledge {
 				bool flag = false;
 				flag = isPluginRegistered(aid);
 cout << "Is the optimizer plugin registered?" << boolalpha << flag << endl;
+registerPlugin(aid, expert);
 
 				if(!flag){
 					cout << "TODO registerPlugin()" << endl;

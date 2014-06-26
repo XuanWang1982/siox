@@ -38,7 +38,7 @@ namespace knowledge {
 			 void registerPlugin( OntologyAttributeID aid, const OptimizerInterface * plugin ) override {
 				assert( plugin != nullptr );
 				assert( expert[aid] == nullptr );
-
+cout << "registerPlugin" << plugin << endl;
 				expert[aid] = ( OptimizerInterface * ) plugin;
 			}
 
@@ -69,8 +69,6 @@ namespace knowledge {
 				bool flag = false;
 				flag = isPluginRegistered(aid);
 cout << "Is the optimizer plugin registered?" << boolalpha << flag << endl;
-registerPlugin(aid, KNOWLEDGE_OPTIMIZER_PLUGIN_INTERFACE);
-
 				if(!flag){
 					cout << "TODO registerPlugin()" << endl;
 				}

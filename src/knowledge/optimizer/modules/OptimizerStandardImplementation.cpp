@@ -88,7 +88,7 @@ cout << "****SIOX DEBUG**** optimalParameterFor NotFoundError" << endl;
 
 
 			virtual void init() {
-
+cout << "****SIOX DEBUG**** virtual void init() in OptimizerStandardImplementation.cpp" << endl;
 			}
 	};
 } // namespace knowledge

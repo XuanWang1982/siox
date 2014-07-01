@@ -983,19 +983,19 @@ static siox_attribute * convertOntologyAttributeToPtr(const OntologyAttribute & 
 		FUNCTION_BEGIN
 
 		if ( process_data.optimizer == nullptr ){
-cout << "***siox_suggest_optimal_value_for*** process_data.optimizer == nullptr" << endl;
+cout << "****SIOX DEBUG**** siox_suggest_optimal_value_for process_data.optimizer == nullptr" << endl;
 			return false;
 		}
 
 		OntologyAttribute oa = convertPtrToOntologyAttribute(attribute);
-cout << "***siox_suggest_optimal_value_for*** The attribute ID is:" << oa.aID << endl;
+cout << "****SIOX DEBUG**** siox_suggest_optimal_value_for The attribute ID is:" << oa.aID << endl;
 
 		try{
 			OntologyValue val(process_data.optimizer->optimalParameterFor(oa.aID, activity->activity));
-cout << "***siox_suggest_optimal_value_for*** OntologyValue val()" << endl;
+cout << "****SIOX DEBUG**** siox_suggest_optimal_value_for OntologyValue val()" << endl;
 			return convert_attribute_back(oa, val, out_value);
 		}catch ( NotFoundError & e ){
-cout << "***siox_suggest_optimal_value_for*** NotFoundError " << e.what() << endl;
+cout << "****SIOX DEBUG**** siox_suggest_optimal_value_for NotFoundError " << e.what() << endl;
 			return false;
 		}		
 	}

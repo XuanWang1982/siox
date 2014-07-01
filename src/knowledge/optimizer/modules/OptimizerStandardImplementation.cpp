@@ -38,7 +38,7 @@ namespace knowledge {
 			 void registerPlugin( OntologyAttributeID aid, const OptimizerInterface * plugin ) override {
 				assert( plugin != nullptr );
 				assert( expert[aid] == nullptr );
-cout << "registerPlugin" << plugin << endl;
+cout << "****SIOX DEBUG**** registerPlugin" << plugin << endl;
 				expert[aid] = ( OptimizerInterface * ) plugin;
 			}
 
@@ -68,20 +68,20 @@ cout << "registerPlugin" << plugin << endl;
 				///@todo Check for registered plug-in?
 				bool flag = false;
 				flag = isPluginRegistered(aid);
-cout << "Is the optimizer plugin registered?" << boolalpha << flag << endl;
+cout << "****SIOX DEBUG**** Is the optimizer plugin registered?" << boolalpha << flag << endl;
 				if(!flag){
-					cout << "TODO registerPlugin()" << endl;
+cout << "****SIOX DEBUG**** TODO registerPlugin()" << endl;
 				}
 
 				auto res = expert.find( aid );
-cout << "=============Test for optimalParameterFor" << endl;
-cout << "***optimalParameterFor*** The attribute ID is: " << aid << endl;
+cout << "****SIOX DEBUG**** Test for optimalParameterFor" << endl;
+cout << "****SIOX DEBUG**** optimalParameterFor The attribute ID is: " << aid << endl;
 
 				if( res != expert.end() ) {
-cout << "optimalParameterFor res != expert.end()" << endl;
+cout << "****SIOX DEBUG**** optimalParameterFor res != expert.end()" << endl;
 					return res->second->optimalParameterFor( aid, activityToStart );
 				} else {
-cout << "optimalParameterFor NotFoundError" << endl;
+cout << "****SIOX DEBUG**** optimalParameterFor NotFoundError" << endl;
 					throw NotFoundError( "Illegal attribute!" );
 				}
 			}

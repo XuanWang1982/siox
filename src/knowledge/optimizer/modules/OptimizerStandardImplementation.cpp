@@ -70,7 +70,7 @@ cout << "****SIOX DEBUG**** registerPlugin" << plugin << endl;
 				flag = isPluginRegistered(aid);
 cout << "****SIOX DEBUG**** Is the optimizer plugin registered?" << boolalpha << flag << endl;
 				if(!flag){
-					registerPlugin(aid, this);
+					//registerPlugin(aid, this);
 cout << "****SIOX DEBUG**** TODO registerPlugin()" << endl;
 				}
 

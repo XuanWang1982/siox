@@ -19,12 +19,16 @@
 
 namespace knowledge {
 
-	class OptimizerStandardImplementation : public Optimizer {
+	class OptimizerStandardImplementation : public ActivityMultiplexerPlugin, public OptimizerInterface {
 
 		private:
 
 			// Map to store plugins in, indexed by attributes' IDs
 			unordered_map<OntologyAttributeID, OptimizerInterface *> expert;
+			UniqueInterfaceID uiid;
+			// AttID of the attribute user-id
+			OntologyAttributeID uidAttID;	///@todo TODO: This variable is currently dead code. Remove it or use it.
+
 
 		protected:
 
@@ -89,7 +93,30 @@ cout << "****SIOX DEBUG**** optimalParameterFor NotFoundError" << endl;
 
 
 			virtual void init() {
-cout << "****SIOX DEBUG**** virtual void init() in OptimizerStandardImplementation.cpp" << endl;
+cout<< "****SIOX DEBUG**** virtual void init() in OptimizerStandardImplementation.cpp"<< endl;
+
+				// Retrieve options
+				OptimizerOptions & o = getOptions<OptimizerOptions> ();
+				SystemInformationGlobalIDManager * sysinfo = facade->get_system_information();
+				assert(sysinfo);
+				// Retrieve uiid
+				RETURN_ON_EXCEPTION( uiid = sysinfo->lookup_interfaceID(o.interface, o.implementation); );
+cout<< "****SIOX DEBUG**** virtual void init() in OptimizerStandardImplementation.cpp uuid is "<< uuid << endl;
+
+				try{
+					Optimizer * optimizer = GET_INSTANCE(Optimizer, o.optimizer);
+					assert(optimizer);
+					for( auto itr = o.hintAttributes.begin(); itr != o.hintAttributes.end(); itr++ ) {
+						string domain = itr->first;
+						string attribute = itr->second;
+
+						OntologyAttribute ontatt = facade->lookup_attribute_by_name(domain, attribute);
+						optimizer->registerPlugin( ontatt.aID, this );
+cout<< "****SIOX DEBUG**** virtual void init() in OptimizerStandardImplementation.cpp aID is "<< aID << endl;
+					}
+				} catch(...) {
+					assert(0 && "Fatal error, cannot look up an attribute that could be looked up previously. Please report this bug."), abort();
+				}
 			}
 	};
 } // namespace knowledge

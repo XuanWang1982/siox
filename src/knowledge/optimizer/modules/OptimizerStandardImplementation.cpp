@@ -12,6 +12,7 @@
 #include <core/component/Component.hpp>
 #include <knowledge/optimizer/OptimizerPluginInterface.hpp>
 #include <monitoring/ontology/OntologyDatatypes.hpp>
+#include <knowledge/optimizer/Optimizer.hpp>
 
 #include <unordered_map>
 

@@ -151,7 +151,7 @@ extern "C" {
 	//void * KNOWLEDGE_OPTIMIZER_INSTANCIATOR_NAME()
 	void * MONITORING_ACTIVITY_MULTIPLEXER_PLUGIN_INSTANCIATOR_NAME()
 	{
-		return new OptimizerStandardImplementation();
+		return new knowledge::OptimizerStandardImplementation();
 	}
 }
 

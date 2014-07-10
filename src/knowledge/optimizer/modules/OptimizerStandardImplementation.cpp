@@ -6,6 +6,20 @@
  * @date 2013-08-01
  * @author Michaela Zimmer
  */
+#include <iostream>
+#include <sstream>
+#include <list>
+#include <unordered_map>
+#include <algorithm>
+#include <mutex>
+
+#include <util/ExceptionHandling.hpp>
+#include <core/reporting/ComponentReportInterface.hpp>
+#include <monitoring/activity_multiplexer/ActivityMultiplexerPluginImplementation.hpp>
+#include <monitoring/system_information/SystemInformationGlobalIDManager.hpp>
+#include <monitoring/datatypes/Activity.hpp>
+
+#include <workarounds.hpp>
 
 #include <knowledge/optimizer/OptimizerImplementation.hpp>
 

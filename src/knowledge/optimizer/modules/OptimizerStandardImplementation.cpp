@@ -39,7 +39,7 @@ using namespace knowledge;
 
 namespace knowledge {
 
-	class OptimizerStandardImplementation : public ActivityMultiplexerPlugin, public OptimizerInterface {
+	class OptimizerStandardImplementation : public ActivityMultiplexerPlugin, public OptimizerInterface, public ComponentReportInterface {
 
 		private:
 

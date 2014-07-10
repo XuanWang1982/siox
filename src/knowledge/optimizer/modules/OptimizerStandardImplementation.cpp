@@ -148,8 +148,8 @@ cout<< "****SIOX DEBUG**** virtual void init() in OptimizerStandardImplementatio
 
 
 extern "C" {
-	//void * KNOWLEDGE_OPTIMIZER_INSTANCIATOR_NAME()
-	void * MONITORING_ACTIVITY_MULTIPLEXER_PLUGIN_INSTANCIATOR_NAME()
+	void * KNOWLEDGE_OPTIMIZER_INSTANCIATOR_NAME()
+	//void * MONITORING_ACTIVITY_MULTIPLEXER_PLUGIN_INSTANCIATOR_NAME()
 	{
 		return new knowledge::OptimizerStandardImplementation();
 	}

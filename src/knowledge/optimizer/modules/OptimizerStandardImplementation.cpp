@@ -50,7 +50,7 @@ cout << "****SIOX DEBUG**** registerPlugin" << plugin << endl;
 
 
 			//bool isPluginRegistered( OntologyAttributeID aid ) const override{
-			bool isPluginRegistered( OntologyAttributeID aid ) {
+			bool isPluginRegistered( OntologyAttributeID aid ) const {
 				return ( expert.find( aid ) != expert.end() );
 			}
 

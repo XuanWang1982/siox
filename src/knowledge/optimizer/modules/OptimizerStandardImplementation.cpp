@@ -121,7 +121,7 @@ cout<< "****SIOX DEBUG**** virtual void init() in OptimizerStandardImplementatio
 				assert(sysinfo);
 				// Retrieve uiid
 				RETURN_ON_EXCEPTION( uiid = sysinfo->lookup_interfaceID(o.interface, o.implementation); );
-cout<< "****SIOX DEBUG**** virtual void init() in OptimizerStandardImplementation.cpp uuid is "<< uuid << endl;
+cout<< "****SIOX DEBUG**** virtual void init() in OptimizerStandardImplementation.cpp uiid is "<< uiid << endl;
 
 				try{
 					Optimizer * optimizer = GET_INSTANCE(Optimizer, o.optimizer);
@@ -132,7 +132,7 @@ cout<< "****SIOX DEBUG**** virtual void init() in OptimizerStandardImplementatio
 
 						OntologyAttribute ontatt = facade->lookup_attribute_by_name(domain, attribute);
 						optimizer->registerPlugin( ontatt.aID, this );
-cout<< "****SIOX DEBUG**** virtual void init() in OptimizerStandardImplementation.cpp aID is "<< aID << endl;
+cout<< "****SIOX DEBUG**** virtual void init() in OptimizerStandardImplementation.cpp aID is "<< ontatt.aID << endl;
 					}
 				} catch(...) {
 					assert(0 && "Fatal error, cannot look up an attribute that could be looked up previously. Please report this bug."), abort();
@@ -143,7 +143,8 @@ cout<< "****SIOX DEBUG**** virtual void init() in OptimizerStandardImplementatio
 
 
 extern "C" {
-	void * KNOWLEDGE_OPTIMIZER_INSTANCIATOR_NAME()
+	//void * KNOWLEDGE_OPTIMIZER_INSTANCIATOR_NAME()
+	void * MONITORING_ACTIVITY_MULTIPLEXER_PLUGIN_INSTANCIATOR_NAME()
 	{
 		return new knowledge::OptimizerStandardImplementation();
 	}

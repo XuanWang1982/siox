@@ -6,7 +6,7 @@
 #include <utility>
 
 //@serializable
-class OptimizerOptions : public ActivityMultiplexerPluginOptions{
+struct OptimizerOptions : public ActivityMultiplexerPluginOptions{
 	ComponentReference optimizer;
 
 	// the layer we are operating on must be the layer we are connected to.

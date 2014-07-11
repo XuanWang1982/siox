@@ -8,7 +8,7 @@
 using namespace std;
 using namespace monitoring;
 using namespace core;
-using namespace knowledge;
+//using namespace knowledge;
 
 //@serializable
 struct OptimizerOptions : public ActivityMultiplexerPluginOptions{

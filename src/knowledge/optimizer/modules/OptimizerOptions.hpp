@@ -11,7 +11,6 @@ using namespace core;
 using namespace knowledge;
 
 //@serializable
-namespace knowledge {
 struct OptimizerOptions : public ActivityMultiplexerPluginOptions{
 	ComponentReference optimizer;
 
@@ -22,4 +21,3 @@ struct OptimizerOptions : public ActivityMultiplexerPluginOptions{
 	vector<pair<string,string> > hintAttributes;	// attributes containing hints, e.g. ('MPI','hint/noncollReadBuffSize')
 
 };
-}

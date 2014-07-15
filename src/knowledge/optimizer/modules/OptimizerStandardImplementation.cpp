@@ -37,7 +37,7 @@ using namespace monitoring;
 using namespace core;
 using namespace knowledge;
 
-//namespace knowledge {
+namespace knowledge {
 
 	class OptimizerStandardImplementation : public ActivityMultiplexerPlugin, public OptimizerInterface, public ComponentReportInterface {
 
@@ -148,15 +148,15 @@ cout<< "****SIOX DEBUG**** virtual void init() in OptimizerStandardImplementatio
 				}
 			}
 
-//} // namespace knowledge
+} // namespace knowledge
 
 
 extern "C" {
 	void * KNOWLEDGE_OPTIMIZER_INSTANCIATOR_NAME()
 	//void * MONITORING_ACTIVITY_MULTIPLEXER_PLUGIN_INSTANCIATOR_NAME()
 	{
-		return new OptimizerStandardImplementation();
-		//return new knowledge::OptimizerStandardImplementation();
+		//return new OptimizerStandardImplementation();
+		return new knowledge::OptimizerStandardImplementation();
 	}
 }
 

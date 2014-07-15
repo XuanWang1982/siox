@@ -62,7 +62,7 @@ namespace knowledge {
 			void unregisterPlugin(OntologyAttributeID aid) override;
 			OntologyValue optimalParameter(OntologyAttributeID aid) const throw(NotFoundError) override;
 			OntologyValue optimalParameterFor(OntologyAttributeID aid, const Activity * activityToStart) const throw(NotFoundError) override;
-	};
+
 	//void registerPlugin( OntologyAttributeID aid, const OptimizerInterface * plugin ) override {
 			 void OptimizerStandardImplementation::registerPlugin( OntologyAttributeID aid, const OptimizerInterface * plugin ) override {
 				assert( plugin != nullptr );
@@ -147,7 +147,7 @@ cout<< "****SIOX DEBUG**** virtual void init() in OptimizerStandardImplementatio
 					assert(0 && "Fatal error, cannot look up an attribute that could be looked up previously. Please report this bug."), abort();
 				}
 			}
-
+	};
 } // namespace knowledge
 
 

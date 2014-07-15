@@ -161,7 +161,7 @@ cout<< "****SIOX DEBUG**** OptimizerStandardImplementation::~OptimizerStandardIm
 extern "C" {
 	void * KNOWLEDGE_OPTIMIZER_INSTANCIATOR_NAME()
 	{
-		return new OptimizerStandardImplementation();
+		//return new OptimizerStandardImplementation();
 		//return new knowledge::OptimizerStandardImplementation();
 	}
 }

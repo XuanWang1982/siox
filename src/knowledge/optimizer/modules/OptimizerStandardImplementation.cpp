@@ -42,7 +42,7 @@ using namespace knowledge;
 	class OptimizerStandardImplementation : public ActivityMultiplexerPlugin, public OptimizerInterface, public ComponentReportInterface {
 
 		private:
-
+			void init()
 			// Map to store plugins in, indexed by attributes' IDs
 			unordered_map<OntologyAttributeID, OptimizerInterface *> expert;
 			UniqueInterfaceID uiid;
@@ -56,11 +56,15 @@ using namespace knowledge;
 				return new OptimizerOptions();
 			}
 
-
 		public:
-
-			 //void registerPlugin( OntologyAttributeID aid, const OptimizerInterface * plugin ) override {
-			 void registerPlugin( OntologyAttributeID aid, const OptimizerInterface * plugin ) {
+			void registerPlugin();
+			bool isPluginRegistered();
+			void unregisterPlugin();
+			OntologyValue optimalParameter();
+			OntologyValue optimalParameterFor();
+	};
+	//void registerPlugin( OntologyAttributeID aid, const OptimizerInterface * plugin ) override {
+			 void OptimizerStandardImplementation::registerPlugin( OntologyAttributeID aid, const OptimizerInterface * plugin ) {
 				assert( plugin != nullptr );
 				assert( expert[aid] == nullptr );
 cout << "****SIOX DEBUG**** registerPlugin" << plugin << endl;
@@ -69,19 +73,19 @@ cout << "****SIOX DEBUG**** registerPlugin" << plugin << endl;
 
 
 			//bool isPluginRegistered( OntologyAttributeID aid ) const override{
-			bool isPluginRegistered( OntologyAttributeID aid ) const {
+			bool OptimizerStandardImplementation::isPluginRegistered( OntologyAttributeID aid ) const {
 				return ( expert.find( aid ) != expert.end() );
 			}
 
 
 			//void unregisterPlugin( OntologyAttributeID aid ) override {
-			void unregisterPlugin( OntologyAttributeID aid ) {
+			void OptimizerStandardImplementation::unregisterPlugin( OntologyAttributeID aid ) {
 				expert.erase( aid );
 			}
 
 
 			//OntologyValue optimalParameter( OntologyAttributeID aid ) const throw( NotFoundError ) override{
-			OntologyValue optimalParameter( OntologyAttributeID aid ) const throw( NotFoundError ) {
+			OntologyValue OptimizerStandardImplementation::optimalParameter( OntologyAttributeID aid ) const throw( NotFoundError ) {
 				///@todo Check for registered plug-in?
 				auto res = expert.find( aid );
 
@@ -93,7 +97,7 @@ cout << "****SIOX DEBUG**** registerPlugin" << plugin << endl;
 			}
 
 			//OntologyValue optimalParameterFor( OntologyAttributeID aid, const Activity * activityToStart ) const throw( NotFoundError ) override {
-			OntologyValue optimalParameterFor( OntologyAttributeID aid, const Activity * activityToStart ) const throw( NotFoundError ) {
+			OntologyValue OptimizerStandardImplementation::optimalParameterFor( OntologyAttributeID aid, const Activity * activityToStart ) const throw( NotFoundError ) {
 				///@todo Check for registered plug-in?
 				bool flag = false;
 				flag = isPluginRegistered(aid);
@@ -117,7 +121,7 @@ cout << "****SIOX DEBUG**** optimalParameterFor NotFoundError" << endl;
 			}
 
 
-			virtual void init() {
+			void OptimizerStandardImplementation::init() {
 cout<< "****SIOX DEBUG**** virtual void init() in OptimizerStandardImplementation.cpp"<< endl;
 
 				// Retrieve options
@@ -143,7 +147,7 @@ cout<< "****SIOX DEBUG**** virtual void init() in OptimizerStandardImplementatio
 					assert(0 && "Fatal error, cannot look up an attribute that could be looked up previously. Please report this bug."), abort();
 				}
 			}
-	};
+
 //} // namespace knowledge
 
 

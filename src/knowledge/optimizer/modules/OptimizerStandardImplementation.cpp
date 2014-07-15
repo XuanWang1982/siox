@@ -37,9 +37,9 @@ using namespace monitoring;
 using namespace core;
 using namespace knowledge;
 
-namespace knowledge {
+//namespace knowledge {
 
-	class OptimizerStandardImplementation : public ActivityMultiplexerPlugin, public OptimizerInterface, public ComponentReportInterface {
+	class OptimizerStandardImplementation : public ActivityMultiplexerPlugin, public OptimizerInterface {
 
 		private:
 			void init();
@@ -62,7 +62,8 @@ namespace knowledge {
 			void unregisterPlugin(OntologyAttributeID aid) override;
 			OntologyValue optimalParameter(OntologyAttributeID aid) const throw(NotFoundError) override;
 			OntologyValue optimalParameterFor(OntologyAttributeID aid, const Activity * activityToStart) const throw(NotFoundError) override;
-
+			~OptimizerStandardImplementation();
+	};
 	//void registerPlugin( OntologyAttributeID aid, const OptimizerInterface * plugin ) override {
 			 void OptimizerStandardImplementation::registerPlugin( OntologyAttributeID aid, const OptimizerInterface * plugin ) override {
 				assert( plugin != nullptr );
@@ -141,22 +142,24 @@ cout<< "****SIOX DEBUG**** virtual void init() in OptimizerStandardImplementatio
 
 						OntologyAttribute ontatt = facade->lookup_attribute_by_name(domain, attribute);
 						optimizer->registerPlugin( ontatt.aID, this );
-cout<< "****SIOX DEBUG**** virtual void init() in OptimizerStandardImplementation.cpp aID is "<< ontatt.aID << endl;
+cout<< "****SIOX DEBUG**** void init() in OptimizerStandardImplementation.cpp aID is "<< ontatt.aID << endl;
 					}
 				} catch(...) {
 					assert(0 && "Fatal error, cannot look up an attribute that could be looked up previously. Please report this bug."), abort();
 				}
 			}
-	};
-} // namespace knowledge
+			OptimizerStandardImplementation::~OptimizerStandardImplementation(){
+cout<< "****SIOX DEBUG**** OptimizerStandardImplementation::~OptimizerStandardImplementation()" << endl;
+			}
+
+//} // namespace knowledge
 
 
 extern "C" {
 	void * KNOWLEDGE_OPTIMIZER_INSTANCIATOR_NAME()
-	//void * MONITORING_ACTIVITY_MULTIPLEXER_PLUGIN_INSTANCIATOR_NAME()
 	{
-		//return new OptimizerStandardImplementation();
-		return new knowledge::OptimizerStandardImplementation();
+		return new OptimizerStandardImplementation();
+		//return new knowledge::OptimizerStandardImplementation();
 	}
 }
 

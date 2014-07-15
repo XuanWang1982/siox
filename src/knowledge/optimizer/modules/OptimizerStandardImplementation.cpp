@@ -64,7 +64,7 @@ using namespace knowledge;
 			OntologyValue optimalParameterFor(OntologyAttributeID aid, const Activity * activityToStart) const throw(NotFoundError) override;
 			~OptimizerStandardImplementation();*/
 
-	void registerPlugin( OntologyAttributeID aid, const OptimizerInterface * plugin ) override {
+	void registerPlugin( OntologyAttributeID aid, const OptimizerInterface * plugin ) {
 			 //void OptimizerStandardImplementation::registerPlugin( OntologyAttributeID aid, const OptimizerInterface * plugin ) override {
 				assert( plugin != nullptr );
 				assert( expert[aid] == nullptr );
@@ -73,19 +73,19 @@ cout << "****SIOX DEBUG**** registerPlugin" << plugin << endl;
 			}
 
 
-			bool isPluginRegistered( OntologyAttributeID aid ) const override{
+			bool isPluginRegistered( OntologyAttributeID aid ) const {
 			//bool OptimizerStandardImplementation::isPluginRegistered( OntologyAttributeID aid ) const override {
 				return ( expert.find( aid ) != expert.end() );
 			}
 
 
-			void unregisterPlugin( OntologyAttributeID aid ) override {
+			void unregisterPlugin( OntologyAttributeID aid ) {
 			//void OptimizerStandardImplementation::unregisterPlugin( OntologyAttributeID aid ) override {
 				expert.erase( aid );
 			}
 
 
-			OntologyValue optimalParameter( OntologyAttributeID aid ) const throw( NotFoundError ) override{
+			OntologyValue optimalParameter( OntologyAttributeID aid ) const throw( NotFoundError ) {
 			//OntologyValue OptimizerStandardImplementation::optimalParameter( OntologyAttributeID aid ) const throw( NotFoundError ) override {
 				///@todo Check for registered plug-in?
 				auto res = expert.find( aid );
@@ -97,7 +97,7 @@ cout << "****SIOX DEBUG**** registerPlugin" << plugin << endl;
 				}
 			}
 
-			OntologyValue optimalParameterFor( OntologyAttributeID aid, const Activity * activityToStart ) const throw( NotFoundError ) override {
+			OntologyValue optimalParameterFor( OntologyAttributeID aid, const Activity * activityToStart ) const throw( NotFoundError ) {
 			//OntologyValue OptimizerStandardImplementation::optimalParameterFor( OntologyAttributeID aid, const Activity * activityToStart ) const throw( NotFoundError ) override {
 				///@todo Check for registered plug-in?
 				bool flag = false;

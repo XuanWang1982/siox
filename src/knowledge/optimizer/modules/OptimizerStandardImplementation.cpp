@@ -42,7 +42,7 @@ using namespace knowledge;
 	class OptimizerStandardImplementation : public ActivityMultiplexerPlugin, public OptimizerInterface, public ComponentReportInterface {
 
 		private:
-			void init()
+			void init();
 			// Map to store plugins in, indexed by attributes' IDs
 			unordered_map<OntologyAttributeID, OptimizerInterface *> expert;
 			UniqueInterfaceID uiid;

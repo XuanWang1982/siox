@@ -42,21 +42,21 @@ using namespace knowledge;
 	class OptimizerStandardImplementation : public ActivityMultiplexerPlugin, public OptimizerInterface {
 
 		private:
-			void init();
 			// Map to store plugins in, indexed by attributes' IDs
 			unordered_map<OntologyAttributeID, OptimizerInterface *> expert;
 			UniqueInterfaceID uiid;
 			// AttID of the attribute user-id
 			OntologyAttributeID uidAttID;	///@todo TODO: This variable is currently dead code. Remove it or use it.
 
-
-		protected:
+/*		protected:
 
 			ComponentOptions * AvailableOptions() {
 				return new OptimizerOptions();
-			}
+			}*/
 
 		public:
+			void init();
+			ComponentOptions * AvailableOptions() override;
 			void registerPlugin(OntologyAttributeID aid, const OptimizerInterface * plugin) override;
 			bool isPluginRegistered(OntologyAttributeID aid) const override;
 			void unregisterPlugin(OntologyAttributeID aid) override;

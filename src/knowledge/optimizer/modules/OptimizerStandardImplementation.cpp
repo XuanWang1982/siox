@@ -55,14 +55,14 @@ using namespace knowledge;
 			}*/
 
 		public:
-			void init();
+			/*void init();
 			ComponentOptions * AvailableOptions() override;
 			void registerPlugin(OntologyAttributeID aid, const OptimizerInterface * plugin) override;
 			bool isPluginRegistered(OntologyAttributeID aid) const override;
 			void unregisterPlugin(OntologyAttributeID aid) override;
 			OntologyValue optimalParameter(OntologyAttributeID aid) const throw(NotFoundError) override;
 			OntologyValue optimalParameterFor(OntologyAttributeID aid, const Activity * activityToStart) const throw(NotFoundError) override;
-			~OptimizerStandardImplementation();
+			~OptimizerStandardImplementation();*/
 
 	void registerPlugin( OntologyAttributeID aid, const OptimizerInterface * plugin ) override {
 			 //void OptimizerStandardImplementation::registerPlugin( OntologyAttributeID aid, const OptimizerInterface * plugin ) override {

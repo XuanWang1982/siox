@@ -55,17 +55,17 @@ using namespace knowledge;
 			}*/
 
 		public:
-			/*void init();
+			void init();
 			ComponentOptions * AvailableOptions() override;
 			void registerPlugin(OntologyAttributeID aid, const OptimizerInterface * plugin) override;
 			bool isPluginRegistered(OntologyAttributeID aid) const override;
 			void unregisterPlugin(OntologyAttributeID aid) override;
 			OntologyValue optimalParameter(OntologyAttributeID aid) const throw(NotFoundError) override;
 			OntologyValue optimalParameterFor(OntologyAttributeID aid, const Activity * activityToStart) const throw(NotFoundError) override;
-			~OptimizerStandardImplementation();*/
+			~OptimizerStandardImplementation();
 
-	//void registerPlugin( OntologyAttributeID aid, const OptimizerInterface * plugin ) override {
-			 void OptimizerStandardImplementation::registerPlugin( OntologyAttributeID aid, const OptimizerInterface * plugin ) override {
+	void registerPlugin( OntologyAttributeID aid, const OptimizerInterface * plugin ) override {
+			 //void OptimizerStandardImplementation::registerPlugin( OntologyAttributeID aid, const OptimizerInterface * plugin ) override {
 				assert( plugin != nullptr );
 				assert( expert[aid] == nullptr );
 cout << "****SIOX DEBUG**** registerPlugin" << plugin << endl;
@@ -73,20 +73,20 @@ cout << "****SIOX DEBUG**** registerPlugin" << plugin << endl;
 			}
 
 
-			//bool isPluginRegistered( OntologyAttributeID aid ) const override{
-			bool OptimizerStandardImplementation::isPluginRegistered( OntologyAttributeID aid ) const override {
+			bool isPluginRegistered( OntologyAttributeID aid ) const override{
+			//bool OptimizerStandardImplementation::isPluginRegistered( OntologyAttributeID aid ) const override {
 				return ( expert.find( aid ) != expert.end() );
 			}
 
 
-			//void unregisterPlugin( OntologyAttributeID aid ) override {
-			void OptimizerStandardImplementation::unregisterPlugin( OntologyAttributeID aid ) override {
+			void unregisterPlugin( OntologyAttributeID aid ) override {
+			//void OptimizerStandardImplementation::unregisterPlugin( OntologyAttributeID aid ) override {
 				expert.erase( aid );
 			}
 
 
-			//OntologyValue optimalParameter( OntologyAttributeID aid ) const throw( NotFoundError ) override{
-			OntologyValue OptimizerStandardImplementation::optimalParameter( OntologyAttributeID aid ) const throw( NotFoundError ) override {
+			OntologyValue optimalParameter( OntologyAttributeID aid ) const throw( NotFoundError ) override{
+			//OntologyValue OptimizerStandardImplementation::optimalParameter( OntologyAttributeID aid ) const throw( NotFoundError ) override {
 				///@todo Check for registered plug-in?
 				auto res = expert.find( aid );
 
@@ -97,8 +97,8 @@ cout << "****SIOX DEBUG**** registerPlugin" << plugin << endl;
 				}
 			}
 
-			//OntologyValue optimalParameterFor( OntologyAttributeID aid, const Activity * activityToStart ) const throw( NotFoundError ) override {
-			OntologyValue OptimizerStandardImplementation::optimalParameterFor( OntologyAttributeID aid, const Activity * activityToStart ) const throw( NotFoundError ) override {
+			OntologyValue optimalParameterFor( OntologyAttributeID aid, const Activity * activityToStart ) const throw( NotFoundError ) override {
+			//OntologyValue OptimizerStandardImplementation::optimalParameterFor( OntologyAttributeID aid, const Activity * activityToStart ) const throw( NotFoundError ) override {
 				///@todo Check for registered plug-in?
 				bool flag = false;
 				flag = isPluginRegistered(aid);
@@ -122,7 +122,8 @@ cout << "****SIOX DEBUG**** optimalParameterFor NotFoundError" << endl;
 			}
 
 
-			void OptimizerStandardImplementation::init() {
+			//void OptimizerStandardImplementation::init() {
+			void init(){
 cout<< "****SIOX DEBUG**** virtual void init() in OptimizerStandardImplementation.cpp"<< endl;
 
 				// Retrieve options
@@ -148,7 +149,9 @@ cout<< "****SIOX DEBUG**** void init() in OptimizerStandardImplementation.cpp aI
 					assert(0 && "Fatal error, cannot look up an attribute that could be looked up previously. Please report this bug."), abort();
 				}
 			}
-			OptimizerStandardImplementation::~OptimizerStandardImplementation(){
+
+			//OptimizerStandardImplementation::~OptimizerStandardImplementation(){
+			~OptimizerStandardImplementation(){
 cout<< "****SIOX DEBUG**** OptimizerStandardImplementation::~OptimizerStandardImplementation()" << endl;
 			}
 	};

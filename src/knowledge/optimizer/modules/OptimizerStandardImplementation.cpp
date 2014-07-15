@@ -63,7 +63,7 @@ using namespace knowledge;
 			OntologyValue optimalParameter(OntologyAttributeID aid) const throw(NotFoundError) override;
 			OntologyValue optimalParameterFor(OntologyAttributeID aid, const Activity * activityToStart) const throw(NotFoundError) override;
 			~OptimizerStandardImplementation();
-	};
+
 	//void registerPlugin( OntologyAttributeID aid, const OptimizerInterface * plugin ) override {
 			 void OptimizerStandardImplementation::registerPlugin( OntologyAttributeID aid, const OptimizerInterface * plugin ) override {
 				assert( plugin != nullptr );
@@ -151,7 +151,7 @@ cout<< "****SIOX DEBUG**** void init() in OptimizerStandardImplementation.cpp aI
 			OptimizerStandardImplementation::~OptimizerStandardImplementation(){
 cout<< "****SIOX DEBUG**** OptimizerStandardImplementation::~OptimizerStandardImplementation()" << endl;
 			}
-
+	};
 //} // namespace knowledge
 
 
